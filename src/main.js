@@ -1,18 +1,19 @@
+import fs from 'fs/promises';
+import path from 'path';
 import { cloneRepository } from './github/downloader.js';
 import { scanRepository } from './scanner/scanner.js';
 import { readFiles } from './reader/reader.js';
 import { buildPrompt } from './prompts/prompt-builder.js';
+import { loadRubric } from './resources/rubric-loader.js';
+import { OUTPUT_DIR } from './config/constants.js';
+import { ensureDir } from './utils/fs-helpers.js';
 
 // Mock Assignment Details for Milestone 2 verification
 const MOCK_ASSIGNMENT = {
   assignmentTitle: 'Beginner-a_week4',
   assignmentDescription: `Watch videos from Lesson 23 to Lesson 37.
 Solve all assignments.
-Upload your GitHub repository.`,
-  rubric: `Task 1
-- Use HTML only.
-- Open the link in a new tab.
-- Use bold text.`
+Upload your GitHub repository.`
 };
 
 async function main() {
@@ -31,26 +32,36 @@ async function main() {
 
     // 2. Scan repository to discover target source files metadata
     const { filesMetadata } = await scanRepository({ repositoryPath });
+    console.log('Source files scanned.');
 
     // 3. Read discovered files, fetching content and size, assigning IDs, and stripping absolutePath
     const { sourceFiles } = await readFiles({ filesMetadata });
     console.log(`${sourceFiles.length} source files found.`);
 
-    // 4. Generate Prompt (Milestone 2)
+    // 4. Load Rubric dynamically
+    const rubric = await loadRubric('beginner-week4.md');
+    console.log('Rubric loaded successfully.');
+
+    // 5. Generate Prompt (Milestone 2)
     console.log('\nGenerating evaluation prompt...');
     const promptOutput = await buildPrompt({
       assignmentTitle: MOCK_ASSIGNMENT.assignmentTitle,
       assignmentDescription: MOCK_ASSIGNMENT.assignmentDescription,
-      rubric: MOCK_ASSIGNMENT.rubric,
+      rubric,
       sourceFiles
     });
+    console.log('Prompt generated successfully.');
 
-    // 5. Print Prompt Builder Output Details
+    // 6. Print Prompt Builder Output Details
     console.log('\n--- Prompt Metadata ---');
     console.log(JSON.stringify(promptOutput.metadata, null, 2));
 
-    console.log('\n--- Generated Prompt Preview (First 600 chars) ---');
-    console.log(promptOutput.prompt.slice(0, 600) + '\n... [TRUNCATED] ...\n');
+    // 7. Ensure output directory exists and write the complete prompt
+    await ensureDir(OUTPUT_DIR);
+    const outputPath = path.join(OUTPUT_DIR, 'prompt.md');
+    await fs.writeFile(outputPath, promptOutput.prompt, 'utf8');
+
+    console.log(`\nPrompt successfully written to:\noutput/prompt.md`);
 
   } catch (error) {
     console.error('\nExecution failed:');
