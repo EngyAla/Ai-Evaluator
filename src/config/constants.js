@@ -9,3 +9,5 @@ export const IGNORED_DIRS = ['node_modules', 'dist', 'build', '.git', 'images', 
 export const IGNORED_FILES = ['package-lock.json', 'package.json', 'README.md', '.DS_Store'];
 
 export const REPOS_DIR = path.resolve(__dirname, '../../workspace/repositories');
+
+export const PROMPT_VERSION = '1.0.0';
