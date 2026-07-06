@@ -5,10 +5,11 @@ import { scanRepository } from './scanner/scanner.js';
 import { readFiles } from './reader/reader.js';
 import { buildPrompt } from './prompts/prompt-builder.js';
 import { loadRubric } from './resources/rubric-loader.js';
+import { evaluatePrompt } from './ai/ai-client.js';
 import { OUTPUT_DIR } from './config/constants.js';
 import { ensureDir } from './utils/fs-helpers.js';
 
-// Mock Assignment Details for Milestone 2 verification
+// Mock Assignment Details
 const MOCK_ASSIGNMENT = {
   assignmentTitle: 'Beginner-a_week4',
   assignmentDescription: `Watch videos from Lesson 23 to Lesson 37.
@@ -44,7 +45,7 @@ async function main() {
     const rubric = await loadRubric(rubricFile);
     console.log('Rubric loaded successfully.');
 
-    // 5. Generate Prompt (Milestone 2)
+    // 5. Generate Prompt
     console.log('\nGenerating evaluation prompt...');
     const promptOutput = await buildPrompt({
       assignmentTitle: MOCK_ASSIGNMENT.assignmentTitle,
@@ -54,16 +55,28 @@ async function main() {
     });
     console.log('Prompt generated successfully.');
 
-    // 6. Print Prompt Metadata Details
-    console.log('\n--- Prompt Metadata ---');
-    console.log(JSON.stringify(promptOutput.metadata, null, 2));
-
-    // 7. Ensure output directory exists and write the complete prompt
+    // 6. Ensure output directory exists and write the complete prompt
     await ensureDir(OUTPUT_DIR);
     const outputPath = path.join(OUTPUT_DIR, 'prompt.md');
     await fs.writeFile(outputPath, promptOutput.prompt, 'utf8');
+    console.log(`Prompt successfully written to:\noutput/prompt.md`);
 
-    console.log(`\nPrompt successfully written to:\noutput/prompt.md`);
+    // 7. Send compiled prompt to the generic AI client
+    console.log('\nSending prompt to AI Evaluator...');
+    const aiResponse = await evaluatePrompt(promptOutput.prompt);
+    
+    // 8. Print AI execution metadata
+    console.log('\n--------------------------------');
+    console.log(`Provider:        ${aiResponse.provider}`);
+    console.log(`Model:           ${aiResponse.model}`);
+    console.log(`Prompt Length:   ${aiResponse.usage.promptCharacters} characters`);
+    console.log(`Response Length: ${aiResponse.usage.responseCharacters} characters`);
+    console.log(`Duration:        ${aiResponse.durationMs} ms`);
+    console.log('--------------------------------');
+
+    // 9. Print complete raw response returned by the LLM
+    console.log('\n--- Raw AI Response ---');
+    console.log(aiResponse.text);
 
   } catch (error) {
     console.error('\nExecution failed:');
