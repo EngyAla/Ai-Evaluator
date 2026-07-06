@@ -1,21 +1,43 @@
 # ROLE
+Your goal is to generate feedback that is indistinguishable from a human mentor reviewing Elzero assignments.
 You are an expert front-end code reviewer and instructor. Your task is to evaluate a student's front-end assignment submission.
 
 # EVALUATION RULES
-- Evaluate ONLY according to the rubric.
+- Evaluate ONLY according to the provided rubric.
 - Ignore folder structure.
-- Ignore file names.
+- Use relative file paths ONLY to identify where an issue exists.
+- Do NOT use file names as evaluation criteria.
+- When multiple HTML files belong to the same lesson or task, evaluate them together before writing feedback.
 - Ignore anything outside the rubric.
-- Mention every mistake.
+- Review the ENTIRE submission before generating feedback.
+- Do NOT stop after finding the first mistake.
+- Group related mistakes together when they belong to the same task.
 - Never invent mistakes.
-- If everything is correct, respond exactly with:
+- Do not infer requirements that are not explicitly defined in the rubric.
+- If a requirement is not mentioned in the rubric, ignore it.
+- Only evaluate the tasks represented by the submitted source files.
+- Do not assume that all assignment tasks were submitted.
+- Do NOT report missing implementations for lessons that are not included in the student's submission.
+- Keep feedback concise.
+- Do not explain HTML theory.
+
+# RESPONSE FORMAT
+If the submission contains no mistakes, return EXACTLY:
 Excellent work!
 Everything is correct.
-Otherwise begin with:
+
+Otherwise:
+- Start with:
 Great work! However,
-If code correction is required, return only the corrected snippet.
-Keep feedback concise.
-Do not explain HTML theory.
+- Mention only the mistakes.
+- Mention every rubric violation found.
+- Always keep a positive and encouraging tone.
+- Do NOT mention requirements that were satisfied.
+- Do NOT include scores.
+- Do NOT include markdown headings.
+- Do NOT explain your reasoning.
+- If a code correction is required, return ONLY the smallest corrected snippet.
+- Never rewrite the entire file.
 
 # ASSIGNMENT TITLE
 Beginner-a_week4
@@ -31,141 +53,108 @@ Upload your GitHub repository.
 ## Assignment Information
 
 **Level:** Beginner
-
 **Week:** 4
-
 **Lessons:** 23–37
 
 Evaluate the student's submission ONLY according to the following requirements.
-
 Do not infer additional requirements.
-
 Ignore folder structure.
-
-Ignore file names except when referencing where an issue exists.
-
 Review every submitted HTML file before generating feedback.
 
 ---
 
-# Task 1 — Semantic HTML Elements
+# Task 1 (Lessons 19–23) — Semantic HTML Elements
 
 ## Requirement 1
-
 The student correctly identifies which of the following are valid HTML elements:
-
-- Header
-- Nav
-- Main
-- Aside
-- Picture
-- Figure
-- Footer
-- Figcaption
-- Section
-- Ruby
-- Data
-- Article
+- Header: Expected `<header>`
+- Nav: Expected `<nav>`
+- Main: Expected `<main>`
+- Aside: Expected `<aside>`
+- Picture: Expected `<picture>`
+- Figure: Expected `<figure>`
+- Footer: Expected `<footer>`
+- Figcaption: Expected `<figcaption>`
+- Section: Expected `<section>`
+- Ruby: Expected `<ruby>`
+- Data: Expected `<data>`
+- Article: Expected `<article>`
 
 The following must be identified as invalid HTML elements:
-
 - Command
 - Install
 - Text
 
 ---
 
-# Task 2 — Semantic Page Layout
+# Task 2 (Lessons 19–23) — Semantic Page Layout
 
 Verify that the page contains semantic HTML elements.
-
 The page must include:
-
-- Header
-- Navigation
-- Main content
-- Sidebar
-- Footer
+- Header: Expected `<header>`
+- Navigation: Expected `<nav>`
+- Main content: Expected `<main>`
+- Sidebar: Expected `<aside>`
+- Footer: Expected `<footer>`
 
 ### Header
-
-Verify that:
-
+Expected HTML:
 - A page title exists.
-- At least five navigation links exist.
+- At least five navigation links exist: Expected `<a>` inside the header.
 
 ### Navigation
-
-Verify that:
-
-- A navigation bar exists.
-- It contains at least six links.
+Expected HTML:
+- A navigation bar exists: Expected `<nav>`.
+- It contains at least six links: Expected six `<a>` tags.
 
 ### Main Content
-
-Verify that:
-
-- Three articles exist.
+Expected HTML:
+- Three articles exist: Expected three `<article>` elements.
 - Each article contains:
-  - Heading
-  - Paragraph
-  - Image
-  - "Read More" link
+  - Heading: Expected `<h1>` to `<h6>`
+  - Paragraph: Expected `<p>`
+  - Image: Expected `<img>`
+  - "Read More" link: Expected `<a>`
 - Articles are separated using `<hr>`.
 
 ### Sidebar
-
-Verify that:
-
+Expected HTML:
 - Sidebar contains the title "Categories".
-- Sidebar contains an unordered list.
-- The unordered list contains five categories.
+- Sidebar contains an unordered list: Expected `<ul>`.
+- The unordered list contains five categories: Expected five `<li>` items.
 
 ### Footer
-
-Verify that:
-
-- Footer exists.
-- Footer contains:
-
-Copyright 2021 ©
-
-- The copyright symbol is created using a valid HTML entity.
+Expected HTML:
+- Footer exists: Expected `<footer>`.
+- Footer contains the text "Copyright 2021 ©" where the copyright symbol is created using a valid HTML entity: Expected `&copy;` or `&#169;`.
 
 ---
 
-# Task 3 — Audio Element
+# Task 3 (Lessons 19–23) — Audio Element
 
-Verify that:
-
-- The page contains one `<audio>` element.
-- At least three `<source>` elements exist.
+Expected HTML:
+- The page contains one audio element: Expected `<audio autoplay loop>`.
+- At least three source elements exist: Expected three `<source>` elements inside `<audio>`.
 - Each source uses a different audio format.
-- Fallback text exists.
-- Audio autoplay is enabled.
-- Audio loops automatically.
+- Fallback text exists inside `<audio>`.
 
 ---
 
-# Task 4 — Video Element
+# Task 4 (Lessons 19–23) — Video Element
 
-Verify that:
-
-- The page contains one `<video>` element.
-- At least three video sources exist.
+Expected HTML:
+- The page contains one video element: Expected `<video autoplay muted poster="...">`.
+- At least three video sources exist: Expected three `<source>` elements inside `<video>`.
 - A poster image is specified.
-- Video autoplay is enabled.
-- Video is muted.
-- Fallback text exists.
-- Two subtitle tracks exist.
-- Each subtitle uses a different language.
+- Two subtitle tracks exist: Expected two `<track kind="subtitles">` elements.
+- Each subtitle uses a different language (e.g., `srclang` attribute).
+- Fallback text exists inside `<video>`.
 
 ---
 
-# Task 5 — Form (Lessons 24–27)
+# Task 5 (Lessons 24–27) — Form
 
 Verify that the form contains the following inputs:
-
 - Username
 - Password
 - Mobile
@@ -175,761 +164,514 @@ Verify that the form contains the following inputs:
 Every input must have its own `<label>`.
 
 ### Input Types
-
-Verify that:
-
-- Username uses `type="text"`
-- Password uses `type="password"`
-- Mobile uses `type="tel"`
-- Email uses `type="email"`
-- Subject uses `type="text"`
+Expected HTML:
+- Username input type: Expected `<input type="text">`
+- Password input type: Expected `<input type="password">`
+- Mobile input type: Expected `<input type="tel">`
+- Email input type: Expected `<input type="email">`
+- Subject input type: Expected `<input type="text">`
 
 ### Validation
-
-Verify that:
-
-- Username is required.
-- Email is required.
+Expected HTML:
+- Username is required: Expected `required` attribute.
+- Email is required: Expected `required` attribute.
 
 ### Placeholder
-
-Every input contains a placeholder.
+Every input contains a placeholder: Expected `placeholder` attribute.
 
 ### Layout
-
-Verify that:
-
+Expected HTML:
 - Label appears above its input.
-- `<hr>` separates every label/input pair.
+- Label and input pair is separated from the next pair using `<hr>`.
 
-### Form
-
-Verify that:
-
-- action points to `test.py`
-- method is `post`
+### Form Action and Method
+Expected HTML:
+- Form configuration: Expected `<form action="test.py" method="post">`
 
 ### Hidden Input
-
-Verify that one hidden input exists.
+Verify that one hidden input exists: Expected `<input type="hidden">`
 
 ### Buttons
-
-Verify that:
-
-- Submit button text is:
-
-Send Data
-
-- Reset button text is:
-
-Empty Form
+Expected HTML:
+- Submit button exists: Expected `<input type="submit" value="Send Data">` or `<button type="submit">Send Data</button>`
+- Reset button exists: Expected `<input type="reset" value="Empty Form">` or `<button type="reset">Empty Form</button>`
 
 ---
 
-# Task 6 — Range Input
+# Task 6 (Lessons 24–27) — Range Input
 
-Verify that:
-
-- One range input exists.
-- Minimum value is 0.
-- Maximum value is 400.
-- Step is 50.
-- Default value is 400.
+Expected HTML:
+- One range input exists: Expected `<input type="range" min="0" max="400" step="50" value="400">`
 
 ---
 
-# Task 7 — Form Attributes (Lessons 28–30)
+# Task 7 (Lessons 28–30) — Form Attributes
 
-Verify that:
-
-- Username exists.
-- Email exists.
-- Hidden Token exists.
+Expected HTML:
+- Username input exists.
+- Email input exists.
+- Hidden Token input exists.
 
 ### Token
-
-Verify that:
-
-- Token uses `type="hidden"`
-- Value equals:
-
-b92f1fc2fce391ad7af633723afd3055
+Expected HTML:
+- Token input: Expected `<input type="hidden" value="b92f1fc2fce391ad7af633723afd3055">`
 
 ### Email
-
-Verify that:
-
-- Email is readonly.
-- Default value equals:
-
-o@o.com
+Expected HTML:
+- Email input: Expected `<input type="email" readonly value="o@o.com">`
 
 ### Username
-
-Verify that:
-
-- autofocus exists.
-- minlength="5"
-- maxlength="20"
-- required exists.
+Expected HTML:
+- Username configuration: Expected `<input type="text" autofocus minlength="5" maxlength="20" required>`
 
 ### Buttons
-
-Verify that:
-
-- Empty button exists.
-- Send button exists.
+Expected HTML:
+- Empty reset button exists: Expected `<input type="reset">` or `<button type="reset">`
+- Send submit button exists: Expected `<input type="submit">` or `<button type="submit">`
 
 ---
 
-# Task 8 — Checkbox and Radio Groups
+# Task 8 (Lessons 28–30) — Checkbox and Radio Groups
 
-### Skills
+### Skills Checkboxes
+Expected HTML:
+- Skills use checkboxes: Expected `<input type="checkbox" name="skills">`
+- Every checkbox has a unique `id` attribute.
+- Every label uses the correct `for` attribute matching the checkbox `id`.
+- At least one checkbox is checked: Expected `checked` attribute on one checkbox.
 
-Verify that:
-
-- Skills use checkboxes.
-- Every checkbox has an id.
-- Every label uses the correct `for` attribute.
-- All checkboxes use:
-
-name="skills"
-
-- At least one checkbox is checked.
-
-### Job
-
-Verify that:
-
-- Jobs use radio buttons.
-- Every radio has an id.
-- Every label uses the correct `for` attribute.
-- All radios use:
-
-name="job"
-
-- At least one radio button is checked.
+### Job Radio Buttons
+Expected HTML:
+- Jobs use radio buttons: Expected `<input type="radio" name="job">`
+- Every radio button has a unique `id` attribute.
+- Every label uses the correct `for` attribute matching the radio `id`.
+- At least one radio button is checked: Expected `checked` attribute on one radio button.
 
 ---
 
-# Task 9 — Select and Textarea
+# Task 9 (Lessons 28–30) — Select and Textarea
 
-Verify that:
-
-- A select element exists.
-- Programming languages are grouped correctly.
-- A textarea exists.
-- textarea uses:
-
-name="brief"
-
-- Default textarea content equals:
-
-Write Here Why You Want To Learn Programming
+Expected HTML:
+- A select element exists: Expected `<select>`.
+- Programming languages are grouped correctly: Expected `<optgroup>` tags inside `<select>`.
+- A textarea exists with brief configuration: Expected `<textarea name="brief">Write Here Why You Want To Learn Programming</textarea>`
 
 ---
 
-# Task 10 — Advanced Form Attributes (Lessons 31–34)
+# Task 10 (Lessons 31–34) — Advanced Form Attributes
 
-Verify that:
-
+Expected HTML:
 - Search input exists.
 - File input exists.
 - URL input exists.
 
 ### Search
-
-Verify that:
-
-- placeholder equals:
-
-Enter A Search Word
-
-- autofocus exists.
+Verify search input configuration:
+- Expected `<input type="search" placeholder="Enter A Search Word" autofocus>`
 
 ### URL
+Verify URL input configuration:
+- Expected `<input type="url" required>`
 
-Verify that:
-
-- URL input is required.
-
-### Form
-
-Verify that:
-
-- Form opens in a new tab.
-- novalidate attribute exists.
+### Form Action Page target
+Verify form target:
+- Expected `<form target="_blank" novalidate>`
 
 ### Buttons
-
-Verify that:
-
-- Empty button exists.
+Verify empty reset button exists:
+- Expected `<input type="reset">` or `<button type="reset">`
 
 ---
 
-# Task 11 — Date Inputs
+# Task 11 (Lessons 31–34) — Date Inputs
 
-Verify that:
-
-- Date input exists.
-- Default date equals:
-
-1982-10-25
-
-- Month input exists.
-- Default month equals:
-
-1982-10
+Expected HTML:
+- Date input exists: Expected `<input type="date" value="1982-10-25">`
+- Month input exists: Expected `<input type="month" value="1982-10">`
 
 ---
 
-# Task 12 — Preformatted Text
+# Task 12 (Lessons 31–34) — Preformatted Text
 
-Verify that:
-
-- The four lines are placed inside a single `<pre>` element.
-
----
-
-# Task 13 — Iframe
-
-Verify that:
-
-- An iframe exists.
-- Source is Elzero website.
-- Width fills the available space.
-- Height equals 400 pixels.
+Expected HTML:
+- The four lines are placed inside a single preformatted element: Expected `<pre>`.
 
 ---
 
-# Task 14 — HTML Knowledge Questions (Lessons 35–37)
+# Task 13 (Lessons 31–34) — Iframe
 
-Verify that answers match the expected HTML knowledge.
+Expected HTML:
+- An iframe exists: Expected `<iframe src="https://elzero.org" width="100%" height="400">` (or CSS equivalent for width/height).
 
+---
+
+# Task 14 (Lessons 35–37) — HTML Knowledge Questions
+
+Verify that answers match expected HTML knowledge.
 Important expected answers include:
-
-- Accessibility range text should be:
-
-10 to 20
-
-NOT
-
-10 – 20
-
-- Keyboard navigation uses:
-
-tabindex="0"
-
-- ARIA stands for:
-
-Accessible Rich Internet Applications
+- Accessibility range text should be: "10 to 20" (NOT "10 – 20")
+- Keyboard navigation: Expected element uses attribute `tabindex="0"`
+- ARIA stands for: "Accessible Rich Internet Applications"
 
 ---
 
-# Task 15 — Accessibility
+# Task 15 (Lessons 35–37) — Accessibility
 
-Verify that:
-
-- Every selectable skill is keyboard accessible.
-- ARIA roles are correctly applied.
-- aria-checked is used.
-- aria-labelledby is used.
+Expected HTML:
+- Every selectable skill is keyboard accessible: Expected `tabindex="0"` or native interactive element.
+- ARIA attributes are correctly applied: Expected `aria-checked="..."` and `aria-labelledby="..."`.
 - Labels correctly reference their corresponding controls.
 
 # STUDENT SUBMISSION
-===== Week2/Assignment(19-23)4.html =====
+===== 19-23task.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="Video task" />
-    <title>Video</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
+     <!-- assigment lessons 19-23  Task 2-->
+        <header>
+            <h1>My Website</h1>
 
-    <video autoplay muted loop poster=https://movies.disney.com/the-lion-king controls width="640" height="460">
-        <source src="../task.mp4" type="video/mp4">
-        <source src="../task.ogv" type="video/ogg">
-        <source src="../task.webm" type="video/webm">
+           
+            <a href="#H">Home</a>
+            <a href="#About">About</a>
+            <a href="#Ser">Services</a>
+            <a href="#Gal">Gallery</a>
+            <a href="#Con">Contact</a>
+        </header>
 
-        <track src="captions_er.vtt" kind="subtitles" srclang="ar" label="arabic">
-        Your browser does not support HTML5 video. Please update your browser.
-    </video>
+        <hr>
 
+        
+        <nav>
+            <a href="#1">Link 1</a>
+            <a href="#2">Link 2</a>
+            <a href="#3">Link 3</a>
+            <a href="#4">Link 4</a>
+            <a href="#5">Link 5</a>
+            <a href="#6">Link 6</a>
+        </nav>
+
+        <hr>
+
+       
+        <main>
+
+            
+            <section>
+
+                
+                <article>
+                    <h2>Article One</h2>
+                    <p>first article content.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YYh5Fk1u9VsWWr1MhkyQeOzeNbtnnMO96g&s" >
+                    <br>
+                    <a href="#Art1">Read More</a>
+                </article>
+
+                <hr>
+
+                
+                <article>
+                    <h2>Artical Two</h2>
+                    <p>second article content.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YYh5Fk1u9VsWWr1MhkyQeOzeNbtnnMO96g&s" >
+                    <br>
+                    <a href="#Art2">Read More</a>
+                </article>
+
+                <hr>
+
+             
+                <article>
+                    <h2>Article Three</h2>
+                    <p> third article content.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YYh5Fk1u9VsWWr1MhkyQeOzeNbtnnMO96g&s" >
+                    <br>
+                    <a href="#Art3">Read More</a>
+                </article>
+
+            </section>
+
+            
+            <aside>
+                <h3>Categories</h3>
+
+                <ul>
+                    <li>Category One</li>
+                    <li>Category Two</li>
+                    <li>Category Three</li>
+                    <li>Category Four</li>
+                    <li>Category Five</li>
+                </ul>
+            </aside>
+
+        </main>
+
+        <hr>
+
+
+        <footer>
+            Copyright 2021 &copy;
+        </footer>
+    <!-- assigment lessons 19-23  Task 3-->
+        
+        <audio controls autoplay loop >
+            <source src="audio.mp3" type="audio/mpeg">
+            <source src="audio.ogg" type="audio/ogg">
+            <source src="audio.wav" type="audio/wav">
+             Your browser does not support the audio Tag
+        </audio>
+
+    <!-- assigment lessons 19-23  Task 3-->
+        <video poster="417a357d7d045b0289a06863d0d131de.jpg" muted autoplay>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            <source src="movie.mov" type="video/mov">
+             Your browser does not support the video Tag
+            <track src ="fgsubtitles_en.vtt" kind ="subtitles" srclang="en" label="English">
+            <track src ="fgsubtitles_it.vtt" kind ="subtitles" srclang="it" label="italian">
+        </video>
 </body>
-
 </html>
 ```
 
-===== Week2/Assignment(24-27)1.html =====
+===== 24-27task.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="Form" />
-    <title>form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <form action="test.py" method="post">
-        <input type="hidden" value="Hello World">
-        <div>
-            <lable>Username</lable>
-            <br>
-            <input type="text" required placeholder="Write your user-name">
-        </div>
+    <!-- assigment lessons 24-27  Task 1-->
+     <form action="test.py" method="post">
+        <input type ="hidden" value="112354" name="hidden field">
+        <label>Username</label>
+        <br>
+        <input type="text" required name="username" placeholder="username">
         <hr>
-        <div>
-            <label>Password</label>
-            <br>
-            <input type="password" placeholder="Write your Password">
-        </div>
+        <label>password</label>
+        <br>
+        <input type="password"name="pass" placeholder="password">
+         <hr>
+        <label>Email</label>
+        <br>
+        <input type="email" required name="email" placeholder="Email Address">
         <hr>
-        <div>
-            <label>Mobile</labl>
-            <br>
-            <input type="number" placeholder="Write your mobile number">
-        </div>
+        <label>Mobile</label>
+        <br>
+        <input type="text"name= "mobile" placeholder="mobile">
         <hr>
-        <div>
-            <lable>Email</lable>
-            <br>
-            <input type="email" required placeholder="Write your email">
-        </div>
-        <hr>
-        <div>
-            <lable>Subject</lable>
-            <br>
-            <input type="text" placeholder="Write your subject">
-        </div>
-        <hr>
+        <label>Subject</label>
+        <br>
+        <input type="text" name="subject" placeholder="subject">
+        <input type="reset"value="Empty Form">
         <input type="submit" value="Send Data">
-        <input type="reset" value="Empty Form">
-
-    </form>
+     </form>
+     <!-- assigment lessons 24-27  Task 2-->
+      <form>
+        <input type="range" start="400" step="50" max="500" min="100">
+      </form>
+    
 </body>
+</html>
 ```
 
-===== Week2/Assignment(24-27)2.html =====
+===== 28-30task.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="range" />
-    <title>range</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+     <!-- assigment lessons 28-30 Tasks-->
     <form>
-        <lable>Range</lable>
-        <br>
-        <input type="range" 
-               value="0" 
-               min="0" 
-               max="400" 
-               step="50" >
-    </form>
-</body>
+        <input type="hidden" value="b92f1fc2fce391ad7af633723afd3055" name="token">
+        <label>Username </label>
+        <input type="text" autofocus min="5" max="20" name ="username" required>
+        <label>Email </label>
+        <input type ="email" value="o@o.com" name="email"readonly>
+        <h2>skills</h2>
+        <div>
+           <input type="checkbox" name="skill" id="ps" value="Problem Solving" checked>
+           <label for="#ps">Problem Solving</label >
 
-```
+         </div>
+          <div>
+           <input type="checkbox" name="skill" id="lt" value="Logical Thinking">
+           <label for="#lt">Logical Thinking</label>
 
-===== Week2/Assignment(28-30)1.html =====
+         </div>
+          <div>
+           <input type="checkbox" name="skill" id="as" value="Advanced Search">
+           <label for="#as">Advanced Search</label>
 
-```html
-<!DOCTYPE html>
-<html>
+         </div>
+          <div>
+           <input type="checkbox" name="skill" id="p" value="planing">
+           <label for ="#p">planing</label>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
+         </div>
+          <div>
+           <input type="checkbox" name="skill" id="a" value="Analysis">
+           <label for ="#a">Analysis </label>
 
-<body>
-    <form action="" method="get">
-        <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
-        </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
-        </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
-        <div>
-            <input type="reset" value="Empty">
-            <input type="submit" value="Send">
-        </div>
+         </div>
+         <h2>job</h2>
+          <div>
+           <input type="radio"name="job"id="f" checked value="Front-End Developer">
+           <label for ="#f">Front-End Developer</label>
 
+         </div>
+         <div>
+           <input type="radio"name="job"id="b" value="Back-End Developer">
+           <label for ="#b">Back-End Developer</label>
 
-    </form>
-</body>
-```
+         </div>
+          <div>
+           <input type="radio"name="job"id="ba"  value="Business Analyst">
+           <label for ="#ba"> Business Analyst</label>
 
-===== Week2/Assignment(28-30)2.html =====
+         </div>
+          <div>
+           <input type="radio"name="job"id="pm" value="Project Manager">
+           <label for ="#pm"> Project Manager</label>
 
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form action="" method="get">
-        <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
-        </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
-        </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
-        <div>
-            <h3>skills</h3>
-            <input id="ps" type="checkbox" name="skills" value="Problem Solving" checked>
-            <label for="ps">Problem Solving</label>
-        </div>
-        <div>
-            <input id="lt" type="checkbox" name="skills" value="Logical Thinking">
-            <label for="lt">Logical Thinking</label>
-        </div>
-        <div>
-            <input id="as" type="checkbox" name="skills" value="Advanced Search">
-            <label for="as">Advanced Search</label>
-        </div>
-        <div>
-            <input id="an" type="checkbox" name="skills" value=" Analysis">
-            <label for="an"> Analysis</label>
-        </div>
-        <div>
-            <input id="pn" type="checkbox" name="skills" value="Planning">
-            <label for="pn">Planning</label>
-        </div>
-        <hr>
-
-
-        <div>
-            <h3>jobs</h3>
-            <input id="front" type="radio" name="job" value="Front-End Developer" checked>
-            <label id="front">Front-End Developer</label>
-        </div>
-        <div>
-            <input id="back" type="radio" name="job" value="Back-End Developer">
-            <label for="back">Back-End Developer</label>
-        </div>
-        <div>
-            <input id="Business" type="radio" name="job" value=" Business Analyst">
-            <label for="Business"> Business Analyst</label>
-        </div>
-        <div>
-            <input id="Scrum" type="radio" name="job" value="Scrum Master">
-            <label for="Scrum">Scrum Master</label>
-        </div>
-        <div>
-            <input id="pm" type="radio" name="job" value="Project Manager">
-            <label for="pm">Project Manager</label>
-        </div>
-        <br>
-        <div>
-            <input type="reset" value="Empty">
-            <input type="submit" value="Send">
-        </div>
-
-
-    </form>
-</body>
-```
-
-===== Week2/Assignment(28-30)3.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form action="" method="get">
-        <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
-        </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
-        </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
-        <div>
-            <h3>skills</h3>
-            <input id="ps" type="checkbox" name="skills" value="Problem Solving" checked>
-            <label for="ps">Problem Solving</label>
-        </div>
-        <div>
-            <input id="lt" type="checkbox" name="skills" value="Logical Thinking">
-            <label for="lt">Logical Thinking</label>
-        </div>
-        <div>
-            <input id="as" type="checkbox" name="skills" value="Advanced Search">
-            <label for="as">Advanced Search</label>
-        </div>
-        <div>
-            <input id="an" type="checkbox" name="skills" value=" Analysis">
-            <label for="an"> Analysis</label>
-        </div>
-        <div>
-            <input id="pn" type="checkbox" name="skills" value="Planning">
-            <label for="pn">Planning</label>
-        </div>
-        <hr>
-
-
-        <div>
-            <h3>jobs</h3>
-            <input id="front" type="radio" name="job" value="Front-End Developer" checked>
-            <label id="front">Front-End Developer</label>
-        </div>
-        <div>
-            <input id="back" type="radio" name="job" value="Back-End Developer">
-            <label for="back">Back-End Developer</label>
-        </div>
-        <div>
-            <input id="Business" type="radio" name="job" value=" Business Analyst">
-            <label for="Business"> Business Analyst</label>
-        </div>
-        <div>
-            <input id="Scrum" type="radio" name="job" value="Scrum Master">
-            <label for="Scrum">Scrum Master</label>
-        </div>
-        <div>
-            <input id="pm" type="radio" name="job" value="Project Manager">
-            <label for="pm">Project Manager</label>
-        </div>
-        <hr>
-        <div>
-            <label>Choose Book</label>
-            <select>
-                <optgroup label="PHP">
-                    <option value="1">v5.0</option>
-                    <option value="2">v7.0</option>
-                    <option value="3">v8.0</option>
+         </div>
+         <br>
+         <div>
+            <label> Progarmming language Version</label>
+            <select name="progarmming language version">
+               <optgroup label="PHP">
+                 <option value ="v5.0">v5.0</option>
+                  <option value ="v7.0">v7.0</option>
+                  <option value ="v8.0">v8.0</option>
                 </optgroup>
-
                 <optgroup label="Python">
-                    <option value="4">v2.0</option>
-                    <option value="5">v3.0</option>
-                    <option value="6">v3.9</option>
+                  <option value ="v2.0">v2.0</option>
+                  <option value ="v3.0">v3.0</option>
+                   <option value ="v3.0">v3.9</option>
                 </optgroup>
-            </select>
-        </div>
-        <hr>
-        <h3>brief</h3>
-        <textarea name="brief" cols="50" rows="100"
-            placeholder="Write Here Why You Want To Learn Programming"></textarea>
+             </select>
+         </div>
         <br>
-        <div>
-            <input type="reset" value="Empty">
-            <input type="submit" value="Send">
-        </div>
+         
+         <textarea placeholder="Write here Why you Want To Learn Programming" cols="41"rows="20" name="brief"></textarea>
 
+        
+
+        <input type="submit" value="Send">
+        <input type ="reset" value="Empty">
 
     </form>
+    
 </body>
+</html>
 ```
 
-===== Week2/Assignment(31-34)1.html =====
+===== 31-34task.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <form novalidate target="_blank">
-        <div>
-            <lable>URL</lable>
-            <br>
-            <input type="url" required>
-        </div>
+     <!-- assigment lessons 31-34 Task 1&2  -->
+      <form novalidate>
+        <label>Search</label>
         <br>
-        <div>
-            <lable>Search</lable>
-            <br>
-            <input type="search" placeholder="Enter A Search Word" autofocus>
-        </div>
         <br>
-        <div>
-            <lable>File</lable>
-            <br>
-            <input type="file">
-        </div>
+        <input type="search" autofocus placeholder="Enter A Search Word" name ="searched">
         <br>
-        <input type="reset" value="Empty">
-        <input type="submit" value="Save">
-    </form>
+        <br>
+        <label>Upload</label>
+        <br>
+        <br>
+        <input type="file" name ="file" >
+        <br>
+        <br>
+        <label>Url </label>
+        <br>
+        <br>
+        <input type="url" required name="url">
+        <br>
+        <br>
+        <label>Date</label>
+        <input type="date" name="date" value="1982-10-25">
+        <br>
+         <br>
+        <label>Month</label>
+        <input type="month" name ="month" value="1982-10">
+         <br>
+         <br>
+         <input type="reset" value="Empty">
+        <input type ="submit" value="Save">
+      </form>
+       <!-- assigment lessons 31-34 Task 3  -->
+        <pre>
+       Hello Line One
+       Hello Line One
+       Hello Line One
+              Hello Line One
+        </pre>
+        <!-- assigment lessons 31-34 Task 4  -->
+         <iframe  src="https://elzero.org/" width="100%" height="400px"></iframe>
+
+
+    
 </body>
+</html>
 ```
 
-===== Week2/Assignment(31-34)2.html =====
+===== 35-37task.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <form novalidate target="_blank">
-        <div>
-            <lable>URL</lable>
-            <br>
-            <input type="url" required>
-        </div>
-        <br>
-        <div>
-            <lable>Search</lable>
-            <br>
-            <input type="search" placeholder="Enter A Search Word" autofocus>
-        </div>
-        <br>
-        <div>
-            <lable>File</lable>
-            <br>
-            <input type="file">
-        </div>
-        <br>
-        <div><input type="date" value="1982-10-25"></div>
-        <br>
-        <div><input type="month" value="1982-10" ></div>
-        <br>
-        <input type="reset" value="Empty">
-        <input type="submit" value="Save">
-    </form>
-</body>
-```
+    <!-- assigment lessons 35-37 Task 3  -->
+     <div class="choose-skill" role="radiogroup" aria-label="Choose a skill">
 
-===== Week2/Assignment(31-34)3.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <p>Hello Line One</p>
-    <p>Hello Line Two</p>
-    <p>Hello Line Three</p>
-    <blockquote>Hello Line Four</blockquote>
-</body>
-```
-
-===== Week2/Assignment(31-34)4.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <iframe src="https://elzero.org/" width="100%" height="400 px"></iframe>
-</body>
-```
-
-===== Week2/Assignment(35-37)2.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <div class="choose-skill" role="radiogroup" aria-label="Choose a Skill">
-
-        <div class="skill" role="radio" tabindex="0" aria-checked="false" id="skill-python">
+        <div id="skill1" class="skill" role="radio" aria-checked="false" tabindex="0" aria-labelledby="label1">
             Python
         </div>
-        <label for="skill-python">Skill One</label>
+        <label id="label1">Skill One</label>
 
-        <div class="skill" role="radio" tabindex="-1" aria-checked="false" id="skill-php">
+        <div id="skill2" class="skill" role="radio" aria-checked="false" tabindex="-1" aria-labelledby="label2">
             PHP
         </div>
-        <label for="skill-php">Skill Two</label>
+        <label id="label2">Skill Two</label>
 
-        <div class="skill" role="radio" tabindex="-1" aria-checked="false" id="skill-js">
+        <div id="skill3" class="skill" role="radio" aria-checked="false" tabindex="-1" aria-labelledby="label3">
             JavaScript
         </div>
-        <label for="skill-js">Skill Three</label>
+        <label id="label3">Skill Three</label>
 
     </div>
+
 </body>
+</html>
 ```

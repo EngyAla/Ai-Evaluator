@@ -18,10 +18,12 @@ Upload your GitHub repository.`
 
 async function main() {
   const repoUrl = process.argv[2];
+  const rubricFile = process.argv[3];
 
-  if (!repoUrl) {
-    console.error('Error: Please provide a GitHub repository URL.');
-    console.error('Usage: node src/main.js <github-repo-url>');
+  if (!repoUrl || !rubricFile) {
+    console.error('Error: Missing required arguments.');
+    console.error('Usage: node src/main.js <github-repository-url> <rubric-file>');
+    console.error('Example: node src/main.js https://github.com/Nora-Elsharkawy/Week2.git beginner-week4.md');
     process.exit(1);
   }
 
@@ -39,7 +41,7 @@ async function main() {
     console.log(`${sourceFiles.length} source files found.`);
 
     // 4. Load Rubric dynamically
-    const rubric = await loadRubric('beginner-week4.md');
+    const rubric = await loadRubric(rubricFile);
     console.log('Rubric loaded successfully.');
 
     // 5. Generate Prompt (Milestone 2)
@@ -52,7 +54,7 @@ async function main() {
     });
     console.log('Prompt generated successfully.');
 
-    // 6. Print Prompt Builder Output Details
+    // 6. Print Prompt Metadata Details
     console.log('\n--- Prompt Metadata ---');
     console.log(JSON.stringify(promptOutput.metadata, null, 2));
 
