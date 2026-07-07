@@ -1,0 +1,9 @@
+{
+    "watch": ["src"],
+    "ignore": [
+        "output/**",
+        "workspace/**",
+        "repositories/**"
+    ],
+    "ext": "js,mjs,cjs,json"
+}

@@ -2,105 +2,95 @@
   "summary": "Great work! However,",
   "issues": [
     {
-      "file": "Week2/Assignment(19-23)4.html",
-      "message": "The video element contains only one subtitle track, but two are expected.",
+      "file": "24To27.html",
+      "message": "In Lessons 24To27.html",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)1.html",
-      "message": "The `lable` element for Username has a typo.",
+      "file": "24To27.html",
+      "message": "The layout between the Mobile input and the Hidden input is missing an `<hr>` separator.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)1.html",
-      "message": "The `labl` element for Mobile has a typo.",
+      "file": "24To27.html",
+      "message": "The layout between the Reset button and the Submit button is missing an `<hr>` separator.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)1.html",
-      "message": "The input for Mobile should be of type `tel`, not `number`.",
+      "file": "28To30.html",
+      "message": "The `min` attribute of the range input should be `0`, the `max` attribute should be `400`, and the `step` attribute should be `50`. In Lessons 28To30.html",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)1.html",
-      "message": "The `lable` element for Email has a typo.",
+      "file": "28To30.html",
+      "message": "The Username input is missing the `autofocus` attribute.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)1.html",
-      "message": "The `lable` element for Subject has a typo.",
+      "file": "28To30.html",
+      "message": "The `id` attributes for the \"Business Analyst\" and \"Back-End Develope\" skills contain leading spaces. Please ensure `id` attributes are unique and do not contain spaces.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)2.html",
-      "message": "The `lable` element for Range has a typo.",
+      "file": "28To30.html",
+      "message": "The `for` attributes in the labels for the \"Business Analyst\" and \"Back-End Develope\" skills contain leading spaces.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(24-27)2.html",
-      "message": "The `value` attribute for the range input is `0`, but `400` is expected.",
-      "snippet": "  <input type=\"range\" \n         value=\"400\" \n         min=\"0\" \n         max=\"400\" \n         step=\"50\" >"
-    },
-    {
-      "file": "Week2/Assignment(28-30)2.html",
-      "message": "The label for the \"Front-End Developer\" radio button uses the `id` attribute instead of `for`.",
-      "snippet": "  <label for=\"front\">Front-End Developer</label>"
-    },
-    {
-      "file": "Week2/Assignment(28-30)3.html",
-      "message": "The default text for the `textarea` is set using the `placeholder` attribute, but it should be placed inside the `textarea` element.",
-      "snippet": "  <textarea name=\"brief\" cols=\"50\" rows=\"100\">Write Here Why You Want To Learn Programming</textarea>"
-    },
-    {
-      "file": "Week2/Assignment(31-34)1.html",
-      "message": "The `lable` element for URL has a typo.",
+      "file": "28To30.html",
+      "message": "The \"Job\" selection uses checkboxes (`<input type=\"checkbox\">`) instead of the required radio buttons (`<input type=\"radio\">`).",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)1.html",
-      "message": "The `lable` element for Search has a typo.",
+      "file": "28To30.html",
+      "message": "The `id` attributes for the \"Scrum Master\" and \"Project Manager\" jobs contain leading spaces.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)1.html",
-      "message": "The `lable` element for File has a typo.",
+      "file": "28To30.html",
+      "message": "The `for` attributes in the labels for the \"Scrum Master\" and \"Project Manager\" jobs contain leading spaces.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)2.html",
-      "message": "The `lable` element for URL has a typo.",
+      "file": "28To30.html",
+      "message": "The `<textarea>` element has duplicate `name` attributes and the `name` attribute should be `brief` instead of `breif`.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)2.html",
-      "message": "The `lable` element for Search has a typo.",
+      "file": "28To30.html",
+      "message": "The text \"Write Here Why You Want To Learn Programming\" should be placed directly inside the `<textarea>` element, not as a `placeholder` attribute.",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)2.html",
-      "message": "The `lable` element for File has a typo.",
+      "file": "Lessons31to34.html",
+      "message": "The placeholder text for the search input is \" Enter A Search Word\". It should be \"Enter A Search Word\" (without the leading space).",
       "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)3.html",
-      "message": "The four lines of text are not placed inside a single `<pre>` element.",
-      "snippet": "  <pre>Hello Line One\n  Hello Line Two\n  Hello Line Three\n  Hello Line Four</pre>"
+      "file": "Lessons31to34.html",
+      "message": "The URL input is missing the `required` attribute.",
+      "snippet": null
     },
     {
-      "file": "Week2/Assignment(31-34)4.html",
-      "message": "The `height` attribute of the `iframe` should be `400`, not `400 px`.",
-      "snippet": "  <iframe src=\"https://elzero.org/\" width=\"100%\" height=\"400\"></iframe>"
+      "file": "Lessons31to34.html",
+      "message": "The `<iframe>` element is commented out and should be present in the document.",
+      "snippet": null
     },
     {
-      "file": "Week2/Assignment(35-37)2.html",
-      "message": "The `tabindex` attribute for \"PHP\" and \"JavaScript\" skills is `-1`, but `0` is expected for every selectable skill to be keyboard accessible.",
-      "snippet": "  <div class=\"skill\" role=\"radio\" tabindex=\"0\" aria-checked=\"false\" id=\"skill-php\">\n      PHP\n  </div>\n  <div class=\"skill\" role=\"radio\" tabindex=\"0\" aria-checked=\"false\" id=\"skill-js\">\n      JavaScript\n  </div>"
+      "file": "Lessons35to37.html",
+      "message": "The accessibility range text is \"10 To 20\" but should be \"10 to 20\" (case sensitive).",
+      "snippet": null
     },
     {
-      "file": "Week2/Assignment(35-37)2.html",
-      "message": "The `aria-labelledby` attribute is missing from the `div` elements with `role=\"radio\"`.",
+      "file": "Lessons35to37.html",
+      "message": "The `tabindex` attribute for the \"JavaScript\" skill is `tabindex=\"o\"` (lowercase 'o') instead of `tabindex=\"0\"` (zero).",
+      "snippet": null
+    },
+    {
+      "file": "Lessons35to37.html",
+      "message": "In the `radiogroup`, only one `role=\"radio\"` element should have `aria-checked=\"true\"`. Currently, all three are checked.",
       "snippet": null
     }
   ],
-  "totalIssues": 20
+  "totalIssues": 18
 }

@@ -348,497 +348,258 @@ Prioritize the following common mistakes:
 - Ensure textarea default text is inside the element.
 
 # STUDENT SUBMISSION
-===== Week2/Assignment(19-23)4.html =====
+===== Lessons 24To27.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="Video task" />
-    <title>Video</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
+    <form action="test.py" method="post">
+        <div>
+        <label>Username</label>
+        <input type="text" required placeholder="UserName" name="User">
+        </div>
+        <hr>
+        <div>
+        <label>Password</label>
+        <input type="Password"  placeholder="Password" name="Password">
+        </div>
+        <hr>
+        <div>
+        <label> Email</label>
+        <input type="email" required placeholder=" email" name="email">
+        </div>
+        <hr>
+        <div>
+        <label> Subject</label>
+        <input type=" text"  placeholder="Write Your Subject here" name="Subject">
+        </div>
+        <hr>
+        <div>
+        <label> Mobile</label>
+        <input type="tel"  placeholder="+20100 (234) 123"  name="phone" >
+        </div>
+        <div>
+        <input type="hidden"  value="welcome fans" name="fan" >
+        </div>
+        <hr>
+        <div>
 
-    <video autoplay muted loop poster=https://movies.disney.com/the-lion-king controls width="640" height="460">
-        <source src="../task.mp4" type="video/mp4">
-        <source src="../task.ogv" type="video/ogg">
-        <source src="../task.webm" type="video/webm">
+        <input type="reset" value="Empty Form">
+        </div>
+        <div>
+        <input type="submit" value="Send Data" >
+        </div>
+        <hr>
+        <div>
+        <label>range</label>
+        <input type="range" min="100" max="500" step="10" value="400">
+        </div>
+    </form>
 
-        <track src="captions_er.vtt" kind="subtitles" srclang="ar" label="arabic">
-        Your browser does not support HTML5 video. Please update your browser.
-    </video>
 
+
+
+
+
+    
 </body>
+</html>
 
+
+```
+
+===== Lessons 28To30.html =====
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="Lessons 28To30.html" >
+    <div>
+        <label for="username">Username</label>
+        <input type="text"  id="username" name="username" minlength="5" maxlength="20" required>
+    </div>
+    <div>
+        <label >Email</label>
+        <input type="email" value="o@o.com" readonly name="email">
+    </div>
+    <div>
+        <label ></label>
+        <input type="hidden"  value="b92f1fc2fce391ad7af633723afd3055" name="teken">
+    </div>
+ 
+   <div>
+    <input type="checkbox" checked id=" Business Analyst" name="skills">
+    <label for=" Business Analyst">  Business Analyst </label>
+   </div>
+   
+   <div>
+    <input type="checkbox" id=" Back-End Develope" name="skills">
+    <label for=" Back-End Develope">  Back-End Develope </label>
+   </div>
+
+   <div>
+   
+    <input type="checkbox" id="Front-End Developer" name="skills">
+    <label for="Front-End Developer"> Front-End Developer </label>
+   </div>
+   </div>
+   <div>
+     <div>
+    <input type="checkbox" checked id=" Scrum Master" name="job">
+    <label for=" Scrum Master">  Scrum Master</label>
+   </div>
+   
+   <div>
+    <input type="checkbox" id="Project Manager" name="job">
+    <label for=" Project Manager">  Project Manager </label>
+   </div>
+
+   <div>
+    <label for="php">Choose Book:</label>
+    <select name="php" id="php" >
+        <optgroup label="PHP">
+            <option value="V5.0">V5.0</option>
+            <option value="V7.0">V7.0</option>
+            <option value="V8.0">V8.0</option>
+        </optgroup>
+        <optgroup label="Python" >
+            <option value="V2.0">V2.0</option>
+            <option value="V3.0">V3.0</option>
+            <option value="V3.9">V3.9</option>
+        </optgroup>
+    </select>
+   </div>
+   <hr>
+   <textarea name="object" id="" name="breif" placeholder="Write Here Why You Want To Learn Programming" cols="44" rows="22"></textarea>
+ <div>
+        <input type="reset" value="Empty">
+        <input type="submit" value="Send">
+    </div>
+    </form>
+</body>
 </html>
 ```
 
-===== Week2/Assignment(24-27)1.html =====
+===== Lessons31to34.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="Form" />
-    <title>form</title>
-</head>
-
-<body>
-    <form action="test.py" method="post">
-        <input type="hidden" value="Hello World">
-        <div>
-            <lable>Username</lable>
-            <br>
-            <input type="text" required placeholder="Write your user-name">
-        </div>
-        <hr>
-        <div>
-            <label>Password</label>
-            <br>
-            <input type="password" placeholder="Write your Password">
-        </div>
-        <hr>
-        <div>
-            <label>Mobile</labl>
-            <br>
-            <input type="number" placeholder="Write your mobile number">
-        </div>
-        <hr>
-        <div>
-            <lable>Email</lable>
-            <br>
-            <input type="email" required placeholder="Write your email">
-        </div>
-        <hr>
-        <div>
-            <lable>Subject</lable>
-            <br>
-            <input type="text" placeholder="Write your subject">
-        </div>
-        <hr>
-        <input type="submit" value="Send Data">
-        <input type="reset" value="Empty Form">
-
-    </form>
-</body>
-```
-
-===== Week2/Assignment(24-27)2.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="range" />
-    <title>range</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <form>
-        <lable>Range</lable>
+    <form action="" target="_blank" novalidate>
+         <div>
+            <label for="Search">Search</label>
+            <br>
+            <br>
+            <input type="search"  id="Search"  placeholder=" Enter A Search Word" autofocus name="Search">
+        </div>
+        <div>
+            <br>
+            <label for="Upload">Upload</label>
+            <br>
+            <br>
+            <input type="file" id="Upload" name="Upload">
+        </div>
+       <br>
+         <div>
+            <label for="url">Url</label>
+            <br>
+            <br>
+            <input type="url" id="url" name="url">
+        </div>
         <br>
-        <input type="range" 
-               value="0" 
-               min="0" 
-               max="400" 
-               step="50" >
-    </form>
-</body>
-
-```
-
-===== Week2/Assignment(28-30)1.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form action="" method="get">
         <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
+            <label for="date">Date</label>
+            <input type="date" id="date" value="1982-10-25"  name="date">
         </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
+        <br>
+          <div>
+            <label for="month">Month</label>
+            <input type="month" id="month" value="1982-10" name="month">
         </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
+        <br>
+
+
         <div>
             <input type="reset" value="Empty">
-            <input type="submit" value="Send">
+            <input type="submit" value="save">
+            
         </div>
-
-
     </form>
+    <hr>
+    <code>
+        <pre>
+            Hello Line One
+            Hello Line Two
+            Hello Line Three
+                  Hello Line Four
+        </pre>
+    </code>
+    <!-- <iframe src="https://elzero.org/study/html-2021-study-plan/" frameborder="1" width="800px" height="600px"></iframe> -->
+    
 </body>
+</html>
 ```
 
-===== Week2/Assignment(28-30)2.html =====
+===== Lessons35to37.html =====
 
 ```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <form action="" method="get">
-        <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
-        </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
-        </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
-        <div>
-            <h3>skills</h3>
-            <input id="ps" type="checkbox" name="skills" value="Problem Solving" checked>
-            <label for="ps">Problem Solving</label>
-        </div>
-        <div>
-            <input id="lt" type="checkbox" name="skills" value="Logical Thinking">
-            <label for="lt">Logical Thinking</label>
-        </div>
-        <div>
-            <input id="as" type="checkbox" name="skills" value="Advanced Search">
-            <label for="as">Advanced Search</label>
-        </div>
-        <div>
-            <input id="an" type="checkbox" name="skills" value=" Analysis">
-            <label for="an"> Analysis</label>
-        </div>
-        <div>
-            <input id="pn" type="checkbox" name="skills" value="Planning">
-            <label for="pn">Planning</label>
-        </div>
-        <hr>
+    <button type="submit">Send</button>
+    <h1>عنوان الصفحه</h1>
+    <h2>عنوان لقسم داخل الصفحة</h2>
+    <p>يحتوي على فقرة نصية</p>
+    lang
+    10 To 20
+    <div tabindex="0"></div>
+    ARIA==>Accessible Rich Internet Applications (Accessibility)
 
+<div class="choose-skill" role="radiogroup" aria-label="Choose Your Skill">
+  
+  <div 
+    class="skill" role="radio" tabindex="0" aria-checked="true"  aria-labelledby="skill1-label">
+    Python
+  </div>
+  <label id="skill1-label">Skill One</label>
 
-        <div>
-            <h3>jobs</h3>
-            <input id="front" type="radio" name="job" value="Front-End Developer" checked>
-            <label id="front">Front-End Developer</label>
-        </div>
-        <div>
-            <input id="back" type="radio" name="job" value="Back-End Developer">
-            <label for="back">Back-End Developer</label>
-        </div>
-        <div>
-            <input id="Business" type="radio" name="job" value=" Business Analyst">
-            <label for="Business"> Business Analyst</label>
-        </div>
-        <div>
-            <input id="Scrum" type="radio" name="job" value="Scrum Master">
-            <label for="Scrum">Scrum Master</label>
-        </div>
-        <div>
-            <input id="pm" type="radio" name="job" value="Project Manager">
-            <label for="pm">Project Manager</label>
-        </div>
-        <br>
-        <div>
-            <input type="reset" value="Empty">
-            <input type="submit" value="Send">
-        </div>
+  <div 
+    class="skill"  role="radio" tabindex="0" aria-checked="true" aria-labelledby="skill2-label">
+    PHP
+  </div>
+  <label id="skill2-label">Skill Two</label>
 
+  <div 
+    class="skill" role="radio" tabindex="o" aria-checked="true"  aria-labelledby="skill3-label">
+    JavaScript
+  </div>
+  <label id="skill3-label">Skill Three</label>
 
-    </form>
+</div>
+    
 </body>
-```
-
-===== Week2/Assignment(28-30)3.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form action="" method="get">
-        <div>
-            <label>Username</label>
-            <br>
-            <input type="text" name="username" placeholder="Write your user-name" autofocus minlength="5" maxlength="20"
-                required>
-        </div>
-        <hr>
-        <div>
-            <label>Email</label>
-            <br>
-            <input type="email" name="email" placeholder="Write your email" readonly value="o@o.com">
-        </div>
-        <hr>
-        <div>
-            <label>Token</label>
-            <input type="hidden" name="token" value="b92f1fc2fce391ad7af633723afd3055">
-        </div>
-        <hr>
-        <div>
-            <h3>skills</h3>
-            <input id="ps" type="checkbox" name="skills" value="Problem Solving" checked>
-            <label for="ps">Problem Solving</label>
-        </div>
-        <div>
-            <input id="lt" type="checkbox" name="skills" value="Logical Thinking">
-            <label for="lt">Logical Thinking</label>
-        </div>
-        <div>
-            <input id="as" type="checkbox" name="skills" value="Advanced Search">
-            <label for="as">Advanced Search</label>
-        </div>
-        <div>
-            <input id="an" type="checkbox" name="skills" value=" Analysis">
-            <label for="an"> Analysis</label>
-        </div>
-        <div>
-            <input id="pn" type="checkbox" name="skills" value="Planning">
-            <label for="pn">Planning</label>
-        </div>
-        <hr>
-
-
-        <div>
-            <h3>jobs</h3>
-            <input id="front" type="radio" name="job" value="Front-End Developer" checked>
-            <label id="front">Front-End Developer</label>
-        </div>
-        <div>
-            <input id="back" type="radio" name="job" value="Back-End Developer">
-            <label for="back">Back-End Developer</label>
-        </div>
-        <div>
-            <input id="Business" type="radio" name="job" value=" Business Analyst">
-            <label for="Business"> Business Analyst</label>
-        </div>
-        <div>
-            <input id="Scrum" type="radio" name="job" value="Scrum Master">
-            <label for="Scrum">Scrum Master</label>
-        </div>
-        <div>
-            <input id="pm" type="radio" name="job" value="Project Manager">
-            <label for="pm">Project Manager</label>
-        </div>
-        <hr>
-        <div>
-            <label>Choose Book</label>
-            <select>
-                <optgroup label="PHP">
-                    <option value="1">v5.0</option>
-                    <option value="2">v7.0</option>
-                    <option value="3">v8.0</option>
-                </optgroup>
-
-                <optgroup label="Python">
-                    <option value="4">v2.0</option>
-                    <option value="5">v3.0</option>
-                    <option value="6">v3.9</option>
-                </optgroup>
-            </select>
-        </div>
-        <hr>
-        <h3>brief</h3>
-        <textarea name="brief" cols="50" rows="100"
-            placeholder="Write Here Why You Want To Learn Programming"></textarea>
-        <br>
-        <div>
-            <input type="reset" value="Empty">
-            <input type="submit" value="Send">
-        </div>
-
-
-    </form>
-</body>
-```
-
-===== Week2/Assignment(31-34)1.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form novalidate target="_blank">
-        <div>
-            <lable>URL</lable>
-            <br>
-            <input type="url" required>
-        </div>
-        <br>
-        <div>
-            <lable>Search</lable>
-            <br>
-            <input type="search" placeholder="Enter A Search Word" autofocus>
-        </div>
-        <br>
-        <div>
-            <lable>File</lable>
-            <br>
-            <input type="file">
-        </div>
-        <br>
-        <input type="reset" value="Empty">
-        <input type="submit" value="Save">
-    </form>
-</body>
-```
-
-===== Week2/Assignment(31-34)2.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>input types</title>
-</head>
-
-<body>
-    <form novalidate target="_blank">
-        <div>
-            <lable>URL</lable>
-            <br>
-            <input type="url" required>
-        </div>
-        <br>
-        <div>
-            <lable>Search</lable>
-            <br>
-            <input type="search" placeholder="Enter A Search Word" autofocus>
-        </div>
-        <br>
-        <div>
-            <lable>File</lable>
-            <br>
-            <input type="file">
-        </div>
-        <br>
-        <div><input type="date" value="1982-10-25"></div>
-        <br>
-        <div><input type="month" value="1982-10" ></div>
-        <br>
-        <input type="reset" value="Empty">
-        <input type="submit" value="Save">
-    </form>
-</body>
-```
-
-===== Week2/Assignment(31-34)3.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <p>Hello Line One</p>
-    <p>Hello Line Two</p>
-    <p>Hello Line Three</p>
-    <blockquote>Hello Line Four</blockquote>
-</body>
-```
-
-===== Week2/Assignment(31-34)4.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <iframe src="https://elzero.org/" width="100%" height="400 px"></iframe>
-</body>
-```
-
-===== Week2/Assignment(35-37)2.html =====
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="descripion" content="input types" />
-    <title>pre-order format</title>
-</head>
-
-<body>
-    <div class="choose-skill" role="radiogroup" aria-label="Choose a Skill">
-
-        <div class="skill" role="radio" tabindex="0" aria-checked="false" id="skill-python">
-            Python
-        </div>
-        <label for="skill-python">Skill One</label>
-
-        <div class="skill" role="radio" tabindex="-1" aria-checked="false" id="skill-php">
-            PHP
-        </div>
-        <label for="skill-php">Skill Two</label>
-
-        <div class="skill" role="radio" tabindex="-1" aria-checked="false" id="skill-js">
-            JavaScript
-        </div>
-        <label for="skill-js">Skill Three</label>
-
-    </div>
-</body>
+</html>
 ```
