@@ -6,6 +6,8 @@ import { readFiles } from './reader/reader.js';
 import { buildPrompt } from './prompts/prompt-builder.js';
 import { loadRubric } from './resources/rubric-loader.js';
 import { evaluatePrompt } from './ai/ai-client.js';
+import { parseEvaluation } from './parser/evaluation-parser.js';
+import { generateScore } from './scoring/score-generator.js';
 import { OUTPUT_DIR } from './config/constants.js';
 import { ensureDir } from './utils/fs-helpers.js';
 
@@ -80,7 +82,21 @@ async function main() {
     // 9. Write the complete raw response returned by the LLM
     const aiOutputPath = path.join(OUTPUT_DIR, 'ai-evaluation.md');
     await fs.writeFile(aiOutputPath, aiResponse.text, 'utf8');
-    console.log(`\nAI evaluation successfully written to:\noutput/ai-evaluation.md`);
+    console.log(`AI evaluation successfully written to:\noutput/ai-evaluation.md`);
+
+    // 10. Parse raw response and save structured JSON
+    console.log('\nParsing evaluation response...');
+    const report = parseEvaluation(aiResponse.text);
+    const jsonOutputPath = path.join(OUTPUT_DIR, 'evaluation.json');
+    await fs.writeFile(jsonOutputPath, JSON.stringify(report, null, 2), 'utf8');
+    console.log(`Structured evaluation successfully written to:\noutput/evaluation.json`);
+
+    // 11. Generate score report and save JSON
+    console.log('\nGenerating score report...');
+    const scoreResult = generateScore(report, rubric);
+    const scoreOutputPath = path.join(OUTPUT_DIR, 'score.json');
+    await fs.writeFile(scoreOutputPath, JSON.stringify(scoreResult, null, 2), 'utf8');
+    console.log(`Score report successfully written to:\noutput/score.json`);
 
   } catch (error) {
     console.error('\nExecution failed:');
