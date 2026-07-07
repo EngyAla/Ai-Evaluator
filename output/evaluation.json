@@ -2,50 +2,105 @@
   "summary": "Great work! However,",
   "issues": [
     {
-      "file": "24-27task.html",
-      "message": "The Mobile input's `type` attribute is incorrect.",
-      "snippet": "    <input type=\"tel\" name=\"mobile\" placeholder=\"mobile\">"
+      "file": "Week2/Assignment(19-23)4.html",
+      "message": "The video element contains only one subtitle track, but two are expected.",
+      "snippet": null
     },
     {
-      "file": "24-27task.html",
-      "message": "The range input's `min`, `max`, and `value` attributes are incorrect (`start` is not a valid attribute for `type=\"range\"`).",
-      "snippet": "    <input type=\"range\" min=\"0\" max=\"400\" step=\"50\" value=\"400\">"
+      "file": "Week2/Assignment(24-27)1.html",
+      "message": "The `lable` element for Username has a typo.",
+      "snippet": null
     },
     {
-      "file": "28-30task.html",
-      "message": "The Username input uses `min` and `max` attributes instead of `minlength` and `maxlength`.",
-      "snippet": "    <input type=\"text\" autofocus minlength=\"5\" maxlength=\"20\" name=\"username\" required>"
+      "file": "Week2/Assignment(24-27)1.html",
+      "message": "The `labl` element for Mobile has a typo.",
+      "snippet": null
     },
     {
-      "file": "28-30task.html",
-      "message": "The `name` attribute for the skills checkboxes should be `skills` (plural).",
-      "snippet": "    <input type=\"checkbox\" name=\"skills\" id=\"ps\" value=\"Problem Solving\" checked>"
+      "file": "Week2/Assignment(24-27)1.html",
+      "message": "The input for Mobile should be of type `tel`, not `number`.",
+      "snippet": null
     },
     {
-      "file": "28-30task.html",
-      "message": "The `for` attribute in your labels for both skills checkboxes and job radio buttons incorrectly includes `#`.",
-      "snippet": "    <label for=\"ps\">Problem Solving</label>"
+      "file": "Week2/Assignment(24-27)1.html",
+      "message": "The `lable` element for Email has a typo.",
+      "snippet": null
     },
     {
-      "file": "28-30task.html",
-      "message": "The `textarea`'s default content should be placed between the opening and closing tags, not in the `placeholder` attribute.",
-      "snippet": "    <textarea placeholder=\"Write here Why you Want To Learn Programming\" cols=\"41\" rows=\"20\" name=\"brief\">Write Here Why You Want To Learn Programming</textarea>"
+      "file": "Week2/Assignment(24-27)1.html",
+      "message": "The `lable` element for Subject has a typo.",
+      "snippet": null
     },
     {
-      "file": "31-34task.html",
-      "message": "The `form` element is missing the `target=\"_blank\"` attribute.",
-      "snippet": "    <form novalidate target=\"_blank\">"
+      "file": "Week2/Assignment(24-27)2.html",
+      "message": "The `lable` element for Range has a typo.",
+      "snippet": null
     },
     {
-      "file": "31-34task.html",
-      "message": "The `iframe`'s `height` attribute should be a unitless number (e.g., `400`), not `400px`.",
-      "snippet": "    <iframe src=\"https://elzero.org/\" width=\"100%\" height=\"400\"></iframe>"
+      "file": "Week2/Assignment(24-27)2.html",
+      "message": "The `value` attribute for the range input is `0`, but `400` is expected.",
+      "snippet": "  <input type=\"range\" \n         value=\"400\" \n         min=\"0\" \n         max=\"400\" \n         step=\"50\" >"
     },
     {
-      "file": "35-37task.html",
-      "message": "The `tabindex` attribute for the second and third skill `div`s with `role=\"radio\"` should be `0` to make them keyboard accessible as per the assignment.",
-      "snippet": "    <div id=\"skill2\" class=\"skill\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" aria-labelledby=\"label2\">\n        PHP\n    </div>\n    <div id=\"skill3\" class=\"skill\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" aria-labelledby=\"label3\">\n        JavaScript\n    </div>"
+      "file": "Week2/Assignment(28-30)2.html",
+      "message": "The label for the \"Front-End Developer\" radio button uses the `id` attribute instead of `for`.",
+      "snippet": "  <label for=\"front\">Front-End Developer</label>"
+    },
+    {
+      "file": "Week2/Assignment(28-30)3.html",
+      "message": "The default text for the `textarea` is set using the `placeholder` attribute, but it should be placed inside the `textarea` element.",
+      "snippet": "  <textarea name=\"brief\" cols=\"50\" rows=\"100\">Write Here Why You Want To Learn Programming</textarea>"
+    },
+    {
+      "file": "Week2/Assignment(31-34)1.html",
+      "message": "The `lable` element for URL has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)1.html",
+      "message": "The `lable` element for Search has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)1.html",
+      "message": "The `lable` element for File has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)2.html",
+      "message": "The `lable` element for URL has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)2.html",
+      "message": "The `lable` element for Search has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)2.html",
+      "message": "The `lable` element for File has a typo.",
+      "snippet": null
+    },
+    {
+      "file": "Week2/Assignment(31-34)3.html",
+      "message": "The four lines of text are not placed inside a single `<pre>` element.",
+      "snippet": "  <pre>Hello Line One\n  Hello Line Two\n  Hello Line Three\n  Hello Line Four</pre>"
+    },
+    {
+      "file": "Week2/Assignment(31-34)4.html",
+      "message": "The `height` attribute of the `iframe` should be `400`, not `400 px`.",
+      "snippet": "  <iframe src=\"https://elzero.org/\" width=\"100%\" height=\"400\"></iframe>"
+    },
+    {
+      "file": "Week2/Assignment(35-37)2.html",
+      "message": "The `tabindex` attribute for \"PHP\" and \"JavaScript\" skills is `-1`, but `0` is expected for every selectable skill to be keyboard accessible.",
+      "snippet": "  <div class=\"skill\" role=\"radio\" tabindex=\"0\" aria-checked=\"false\" id=\"skill-php\">\n      PHP\n  </div>\n  <div class=\"skill\" role=\"radio\" tabindex=\"0\" aria-checked=\"false\" id=\"skill-js\">\n      JavaScript\n  </div>"
+    },
+    {
+      "file": "Week2/Assignment(35-37)2.html",
+      "message": "The `aria-labelledby` attribute is missing from the `div` elements with `role=\"radio\"`.",
+      "snippet": null
     }
   ],
-  "totalIssues": 9
+  "totalIssues": 20
 }

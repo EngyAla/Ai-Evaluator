@@ -1,50 +1,71 @@
 Great work! However,
 
-In `24-27task.html`:
-*   The Mobile input's `type` attribute is incorrect.
-    ```html
-    <input type="tel" name="mobile" placeholder="mobile">
-    ```
-*   The range input's `min`, `max`, and `value` attributes are incorrect (`start` is not a valid attribute for `type="range"`).
-    ```html
-    <input type="range" min="0" max="400" step="50" value="400">
-    ```
+In Week2/Assignment(19-23)4.html:
+- The video element contains only one subtitle track, but two are expected.
 
-In `28-30task.html`:
-*   The Username input uses `min` and `max` attributes instead of `minlength` and `maxlength`.
-    ```html
-    <input type="text" autofocus minlength="5" maxlength="20" name="username" required>
-    ```
-*   The `name` attribute for the skills checkboxes should be `skills` (plural).
-    ```html
-    <input type="checkbox" name="skills" id="ps" value="Problem Solving" checked>
-    ```
-*   The `for` attribute in your labels for both skills checkboxes and job radio buttons incorrectly includes `#`.
-    ```html
-    <label for="ps">Problem Solving</label>
-    ```
-*   The `textarea`'s default content should be placed between the opening and closing tags, not in the `placeholder` attribute.
-    ```html
-    <textarea placeholder="Write here Why you Want To Learn Programming" cols="41" rows="20" name="brief">Write Here Why You Want To Learn Programming</textarea>
-    ```
+In Week2/Assignment(24-27)1.html:
+- The `lable` element for Username has a typo.
+- The `labl` element for Mobile has a typo.
+- The input for Mobile should be of type `tel`, not `number`.
+- The `lable` element for Email has a typo.
+- The `lable` element for Subject has a typo.
 
-In `31-34task.html`:
-*   The `form` element is missing the `target="_blank"` attribute.
-    ```html
-    <form novalidate target="_blank">
-    ```
-*   The `iframe`'s `height` attribute should be a unitless number (e.g., `400`), not `400px`.
-    ```html
-    <iframe src="https://elzero.org/" width="100%" height="400"></iframe>
-    ```
+In Week2/Assignment(24-27)2.html:
+- The `lable` element for Range has a typo.
+- The `value` attribute for the range input is `0`, but `400` is expected.
+  ```html
+  <input type="range" 
+         value="400" 
+         min="0" 
+         max="400" 
+         step="50" >
+  ```
 
-In `35-37task.html`:
-*   The `tabindex` attribute for the second and third skill `div`s with `role="radio"` should be `0` to make them keyboard accessible as per the assignment.
-    ```html
-    <div id="skill2" class="skill" role="radio" aria-checked="false" tabindex="0" aria-labelledby="label2">
-        PHP
-    </div>
-    <div id="skill3" class="skill" role="radio" aria-checked="false" tabindex="0" aria-labelledby="label3">
-        JavaScript
-    </div>
-    ```
+In Week2/Assignment(28-30)2.html:
+- The label for the "Front-End Developer" radio button uses the `id` attribute instead of `for`.
+  ```html
+  <label for="front">Front-End Developer</label>
+  ```
+
+In Week2/Assignment(28-30)3.html:
+- The default text for the `textarea` is set using the `placeholder` attribute, but it should be placed inside the `textarea` element.
+  ```html
+  <textarea name="brief" cols="50" rows="100">Write Here Why You Want To Learn Programming</textarea>
+  ```
+
+In Week2/Assignment(31-34)1.html:
+- The `lable` element for URL has a typo.
+- The `lable` element for Search has a typo.
+- The `lable` element for File has a typo.
+
+In Week2/Assignment(31-34)2.html:
+- The `lable` element for URL has a typo.
+- The `lable` element for Search has a typo.
+- The `lable` element for File has a typo.
+
+In Week2/Assignment(31-34)3.html:
+- The four lines of text are not placed inside a single `<pre>` element.
+  ```html
+  <pre>Hello Line One
+  Hello Line Two
+  Hello Line Three
+  Hello Line Four</pre>
+  ```
+
+In Week2/Assignment(31-34)4.html:
+- The `height` attribute of the `iframe` should be `400`, not `400 px`.
+  ```html
+  <iframe src="https://elzero.org/" width="100%" height="400"></iframe>
+  ```
+
+In Week2/Assignment(35-37)2.html:
+- The `tabindex` attribute for "PHP" and "JavaScript" skills is `-1`, but `0` is expected for every selectable skill to be keyboard accessible.
+  ```html
+  <div class="skill" role="radio" tabindex="0" aria-checked="false" id="skill-php">
+      PHP
+  </div>
+  <div class="skill" role="radio" tabindex="0" aria-checked="false" id="skill-js">
+      JavaScript
+  </div>
+  ```
+- The `aria-labelledby` attribute is missing from the `div` elements with `role="radio"`.

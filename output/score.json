@@ -1,9 +1,9 @@
 {
-  "score": 99,
+  "score": 88,
   "maxScore": 108,
-  "percentage": 91.67,
-  "passedRequirements": 99,
-  "failedRequirements": 9,
+  "percentage": 81.48,
+  "passedRequirements": 88,
+  "failedRequirements": 20,
   "totalRequirements": 108,
-  "grade": "Very Good"
+  "grade": "Good"
 }
