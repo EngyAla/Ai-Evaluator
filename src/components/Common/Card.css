@@ -1,0 +1,16 @@
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  transition: border-color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  border-color: var(--scrollbar-thumb-hover);
+  background-color: var(--surface-hover-color);
+}

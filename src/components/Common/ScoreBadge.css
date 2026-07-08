@@ -1,0 +1,43 @@
+.score-badge {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 700;
+}
+
+.score-badge-large {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.score-badge-medium {
+  font-size: 18px;
+}
+
+.score-badge-small {
+  font-size: 14px;
+}
+
+.score-pass .score-num {
+  color: var(--success-color);
+}
+
+.score-fail .score-num {
+  color: var(--error-color);
+}
+
+.score-sep {
+  color: var(--text-muted);
+  font-size: 0.7em;
+  margin: 0 1px;
+}
+
+.score-max {
+  color: var(--text-secondary);
+  font-size: 0.65em;
+  font-weight: 500;
+}
+
+.score-placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+}

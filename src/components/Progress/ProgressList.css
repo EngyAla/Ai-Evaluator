@@ -1,0 +1,10 @@
+.progress-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progress-list-items {
+  display: flex;
+  flex-direction: column;
+}

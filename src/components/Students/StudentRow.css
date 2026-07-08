@@ -1,0 +1,46 @@
+.student-row {
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.student-row:hover {
+  background-color: var(--surface-hover-color);
+}
+
+.student-row td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.student-row:last-child td {
+  border-bottom: none;
+}
+
+.student-row-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.student-row-repo {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.student-row-repo-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.student-row-github-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.student-row-status {
+  white-space: nowrap;
+}

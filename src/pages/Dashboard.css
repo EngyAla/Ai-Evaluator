@@ -1,0 +1,63 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard-main-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dashboard-main-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 90%;
+}
+
+.dashboard-uploads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.evaluate-all-btn {
+  width: 100%;
+  padding: 12px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.dashboard-results-section,
+.dashboard-progress-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.export-excel-btn {
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+  margin-bottom: 20px;
+}

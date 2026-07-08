@@ -1,0 +1,30 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.pane {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.pane-left {
+  flex: 0 0 55%;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  padding: 24px;
+}
+
+.pane-right {
+  flex: 0 0 45%;
+  background-color: var(--surface-color);
+  position: relative;
+}

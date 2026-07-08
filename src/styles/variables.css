@@ -1,0 +1,39 @@
+:root {
+  /* Design Tokens */
+  --primary-color: rgb(7, 141, 132);
+  --primary-hover-color: rgb(5, 120, 112);
+  --primary-glow: rgba(7, 141, 132, 0.15);
+  
+  --bg-color: #0b0f19;
+  --surface-color: #121824;
+  --surface-hover-color: #1a2232;
+  --card-bg: #121824;
+  --border-color: #1e293b;
+  
+  /* Status Colors */
+  --success-color: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --warning-color: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --error-color: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --info-color: #3b82f6;
+  --info-bg: rgba(59, 130, 246, 0.1);
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Layout */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-sm: 4px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --transition-duration: 0.2s;
+  
+  /* Scrollbar */
+  --scrollbar-bg: #0b0f19;
+  --scrollbar-thumb: #1e293b;
+  --scrollbar-thumb-hover: #334155;
+}

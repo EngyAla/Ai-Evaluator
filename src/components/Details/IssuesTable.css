@@ -1,0 +1,33 @@
+.issues-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.issues-table-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background-color: var(--surface-color);
+  z-index: 2;
+}
+
+.issues-header-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--warning-color);
+}
+
+.issues-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.issues-list {
+  display: flex;
+  flex-direction: column;
+}

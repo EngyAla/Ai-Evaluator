@@ -1,9 +1,13 @@
 {
-    "watch": ["src"],
-    "ignore": [
-        "output/**",
-        "workspace/**",
-        "repositories/**"
-    ],
-    "ext": "js,mjs,cjs,json"
+  "watch": ["src"],
+  "ignore": [
+    "output/**",
+    "workspace/**",
+    "src/components/**",
+    "src/pages/**",
+    "src/styles/**",
+    "src/assets/**",
+    "src/routes/**",
+    "src/hooks/**"
+  ]
 }

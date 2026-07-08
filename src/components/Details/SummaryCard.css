@@ -1,0 +1,29 @@
+.summary-card {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.summary-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+}
+
+.summary-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.summary-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

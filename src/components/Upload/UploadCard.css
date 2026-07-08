@@ -1,0 +1,131 @@
+.upload-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upload-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.upload-card-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--primary-color);
+}
+
+.upload-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.upload-card-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.upload-dropzone {
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: border-color var(--transition-duration);
+  cursor: pointer;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--primary-color);
+}
+
+.upload-dropzone-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--text-muted);
+}
+
+.upload-dropzone-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.upload-dropzone-or {
+  color: var(--text-muted);
+}
+
+.upload-browse-btn {
+  padding: 7px 16px !important;
+  font-size: 13px !important;
+}
+
+.upload-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background-color: rgba(7, 141, 132, 0.06);
+  border: 1px solid rgba(7, 141, 132, 0.15);
+  border-radius: var(--border-radius);
+}
+
+.upload-file-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.upload-file-details {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.upload-file-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upload-file-size {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.upload-file-rows {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.upload-file-check {
+  color: var(--success-color);
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}

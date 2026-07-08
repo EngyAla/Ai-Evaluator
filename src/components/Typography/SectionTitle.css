@@ -1,0 +1,15 @@
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.section-title-count {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 14px;
+}

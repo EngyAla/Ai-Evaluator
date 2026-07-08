@@ -1,0 +1,48 @@
+.issue-snippet-empty {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.issue-snippet-block {
+  position: relative;
+  background-color: #0d1117;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 10px 32px 10px 10px;
+  max-width: 240px;
+}
+
+.issue-snippet-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  color: #79c0ff;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.issue-snippet-copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 2px;
+  border-radius: 4px;
+  transition: color var(--transition-duration);
+}
+
+.issue-snippet-copy-btn:hover {
+  color: var(--text-primary);
+}
+
+.copy-icon {
+  width: 13px;
+  height: 13px;
+}
