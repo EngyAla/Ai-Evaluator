@@ -4,10 +4,11 @@ import SectionTitle from '../Typography/SectionTitle.jsx';
 import './StudentTable.css';
 
 /**
- * Renders the detected students table.
+ * Detected Students table — the single source of truth for each student's
+ * evaluation status.
  *
  * Props:
- *   students {Array<{student, repositoryUrl}>} — parsed from uploaded CSV.
+ *   students {Array<object>} — parsed from CSV, enriched after evaluation.
  */
 export default function StudentTable({ students = [] }) {
   const [search, setSearch] = useState('');
@@ -31,10 +32,14 @@ export default function StudentTable({ students = [] }) {
   }
 
   // ── Filtered view ──────────────────────────────────────────────────
-  const filtered = students.filter((s) =>
-    s.student.toLowerCase().includes(search.toLowerCase()) ||
-    s.repositoryUrl.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = students.filter((s) => {
+    const term = search.toLowerCase();
+    const repo = s.repositoryUrl || s.repository || '';
+    return (
+      s.student.toLowerCase().includes(term) ||
+      repo.toLowerCase().includes(term)
+    );
+  });
 
   return (
     <div className="student-table-section">
@@ -65,13 +70,8 @@ export default function StudentTable({ students = [] }) {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((s) => (
-              <StudentRow
-                key={s.student}
-                student={s.student}
-                repository={s.repositoryUrl}
-                status="Waiting"
-              />
+            {filtered.map((s, i) => (
+              <StudentRow key={`${s.student}-${i}`} data={s} />
             ))}
             {filtered.length === 0 && (
               <tr>

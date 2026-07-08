@@ -2,14 +2,11 @@ import React from 'react';
 import IssueRow from './IssueRow.jsx';
 import './IssuesTable.css';
 
-const MOCK_ISSUES = [
-  { file: 'Task1.html', message: 'Semantic HTML Elements** The `<picture>` element is not used. The `<figure>` element is not used. The `<figcaption>` element is not used. The `<section>` element is not used. The `<ruby>` element is not used. The `<data>` element is not used.', snippet: null },
-  { file: 'Task2.html', message: 'Semantic Page Layout** The header contains 4 navigation links, but at least five were expected. The sidebar\'s unordered list contains 4 categories, but five were expected.', snippet: null },
-  { file: 'Task2.html', message: 'Audio Element** The `<source>` elements within the `<audio>` tag do not specify different audio formats.', snippet: '<source src="audio.mp3" type="audio/mpeg">\n<source src="audio.ogg" type="audio/ogg">\n<source src="audio.wav" type="audio/wav">' },
-  { file: 'Task3.html', message: 'Video Element** A poster image is not specified for the `<video>` element (the `poster` attribute is empty). The `<video>` element does not contain two subtitle tracks.', snippet: null },
-];
-
-export default function IssuesTable({ issues = MOCK_ISSUES }) {
+/**
+ * Renders the list of evaluation issues.
+ * Empty array results in a "no issues" state.
+ */
+export default function IssuesTable({ issues = [] }) {
   return (
     <div className="issues-table">
       <div className="issues-table-header">
@@ -18,11 +15,15 @@ export default function IssuesTable({ issues = MOCK_ISSUES }) {
         </svg>
         <h3 className="issues-title">Issues ({issues.length})</h3>
       </div>
-      <div className="issues-list">
-        {issues.map((issue, i) => (
-          <IssueRow key={i} {...issue} />
-        ))}
-      </div>
+      {issues.length > 0 ? (
+        <div className="issues-list">
+          {issues.map((issue, i) => (
+            <IssueRow key={i} {...issue} />
+          ))}
+        </div>
+      ) : (
+        <p className="issues-empty">No issues found. Great work!</p>
+      )}
     </div>
   );
 }

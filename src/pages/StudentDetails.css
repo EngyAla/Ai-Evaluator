@@ -38,3 +38,74 @@
   font-size: 12px !important;
   padding: 8px 16px !important;
 }
+
+/* ── Empty state (no data available) ── */
+.student-details-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.student-details-empty-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.student-details-empty-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── Error card ── */
+.student-error-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 32px 24px;
+  margin: 16px 20px;
+  background-color: var(--error-bg);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--border-radius-lg);
+}
+
+.student-error-icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.15);
+}
+
+.student-error-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--error-color);
+}
+
+.student-error-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--error-color);
+}
+
+.student-error-message {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.student-error-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}

@@ -50,8 +50,7 @@
   height: 14px;
 }
 
-.dashboard-results-section,
-.dashboard-progress-section {
+.dashboard-results-section {
   display: flex;
   flex-direction: column;
 }

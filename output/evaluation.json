@@ -2,90 +2,75 @@
   "summary": "Great work! However,",
   "issues": [
     {
-      "file": "Task1.html",
-      "message": "Task1.html",
+      "file": "24To27.html",
+      "message": "In `Lessons 24To27.html`",
       "snippet": null
     },
     {
-      "file": "Task1.html",
-      "message": "The header must contain at least five navigation links.",
-      "snippet": "        <li><a href=\"http://\">Contact Us</a></li>\n        <li><a href=\"http://\">Blog</a></li>"
+      "file": "24To27.html",
+      "message": "The mobile input group and the hidden input group are not separated by an `<hr>` element.",
+      "snippet": null
     },
     {
-      "file": "Task2.html",
-      "message": "The sidebar's unordered list must contain five categories. ### Task2.html",
-      "snippet": "        <li>Link4</li>\n        <li>Link5</li>"
+      "file": "24To27.html",
+      "message": "The reset button group and the submit button group are not separated by an `<hr>` element.",
+      "snippet": null
     },
     {
-      "file": "Task2.html",
-      "message": "The audio element's source elements do not use different audio formats.",
-      "snippet": "        <source src=\"\" type=\"audio/mpeg\">\n        <source src=\"\" type=\"audio/ogg\">\n        <source src=\"\" type=\"audio/wav\">"
+      "file": "24To27.html",
+      "message": "The range input's `min` attribute should be `0`.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The video element must include two subtitle tracks with different languages. ### Task3.html",
-      "snippet": "        <track kind=\"subtitles\" src=\"subtitles-en.vtt\" srclang=\"en\" label=\"English\">\n        <track kind=\"subtitles\" src=\"subtitles-fr.vtt\" srclang=\"fr\" label=\"French\">"
+      "file": "24To27.html",
+      "message": "The range input's `max` attribute should be `400`.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The username input's label is not correctly associated (missing `id` on the input), and the input is missing the `required` attribute.",
-      "snippet": "            <label for=\"uName\">UserName : </label>\n            <input type=\"text\" id=\"uName\" placeholder=\"املأ الحقل\" required>"
+      "file": "28To30.html",
+      "message": "The range input's `step` attribute should be `50`. In `Lessons 28To30.html`",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The password input's label is not correctly associated (missing `id` on the input).",
-      "snippet": "            <label for=\"Password\">Password : </label>\n            <input type=\"password\" id=\"Password\" placeholder=\"ضع كلمة مرور صعبة\">"
+      "file": "28To30.html",
+      "message": "The username input is missing the `autofocus` attribute.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The mobile input's type is `text` instead of `tel`, and its label is not correctly associated (missing `id` on the input).",
-      "snippet": "            <label for=\"mobile\">Mobile : </label>\n            <input type=\"tel\" id=\"mobile\" placeholder=\"املأ الحقل\" required>"
+      "file": "28To30.html",
+      "message": "The job inputs should use `type=\"radio\"` instead of `type=\"checkbox\"`.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The email input's label is not correctly associated (missing `id` on the input).",
-      "snippet": "            <label for=\"Email\">Email : </label>\n            <input type=\"email\" id=\"Email\" placeholder=\"املأ الحقل\" required>"
+      "file": "28To30.html",
+      "message": "The textarea has a duplicate `name` attribute and the `name` should be `brief`.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The subject input's label is not correctly associated (missing `id` on the input).",
-      "snippet": "            <label for=\"subject\">Subject : </label>\n            <input type=\"text\" id=\"subject\" placeholder=\"املأ الحقل\">"
+      "file": "28To30.html",
+      "message": "The textarea's default text should be placed inside the `<textarea>` tags, not in a `placeholder` attribute.",
+      "snippet": null
     },
     {
-      "file": "Task3.html",
-      "message": "The hidden input must have `type=\"hidden\"`.",
-      "snippet": "        <input type=\"hidden\" value=\"1\">"
+      "file": "Lessons31to34.html",
+      "message": "The URL input is missing the `required` attribute.",
+      "snippet": null
     },
     {
-      "file": "Task4.html",
-      "message": "The range input's `min` attribute should be `0`, and its `max` attribute should be `400`. ### Task4.html",
-      "snippet": "            <input type=\"range\" value=\"400\" min=\"0\" max=\"400\" step=\"50\">"
+      "file": "Lessons31to34.html",
+      "message": "The iframe element is commented out and thus not present on the page.",
+      "snippet": null
     },
     {
-      "file": "Task4.html",
-      "message": "The email input's `value` attribute should be `o@o.com`.",
-      "snippet": "            <input type=\"email\" name=\"Email\" placeholder=\"املأ الحقل\" readonly value=\"o@o.com\" >"
+      "file": "Lessons35to37.html",
+      "message": "The accessibility range text \"10 To 20\" should have a lowercase 't' in \"to\".",
+      "snippet": null
     },
     {
-      "file": "Task4.html",
-      "message": "The textarea is missing the `name=\"brief\"` attribute, and the default text should be inside the element, not in a `placeholder` attribute.",
-      "snippet": "            <textarea name=\"brief\">Write Here Why You Want To Learn Programming</textarea>"
-    },
-    {
-      "file": "Task4.html",
-      "message": "ARIA attributes (`aria-checked`, `aria-labelledby`) are not applied to the skills checkboxes.",
-      "snippet": "           <input type=\"checkbox\" name=\"Skills\" value=\"Problem Solving\" id=\"P-Solving\" checked aria-checked=\"true\" aria-labelledby=\"label-P-Solving\">\n           <label for=\"P-Solving\" id=\"label-P-Solving\">Problem Solving</label>\n           <!-- ... similar for other checkboxes, with aria-checked=\"false\" if not checked -->"
-    },
-    {
-      "file": "Task5.html",
-      "message": "ARIA attributes (`aria-checked`, `aria-labelledby`) are not applied to the job radio buttons. ### Task5.html",
-      "snippet": "           <input type=\"radio\" name=\"Jobs\" value=\"Front\" id=\"Front\" checked aria-checked=\"true\" aria-labelledby=\"label-Front\">\n           <label for=\"Front\" id=\"label-Front\">Front-End</label>\n           <!-- ... similar for other radio buttons, with aria-checked=\"false\" if not checked -->"
-    },
-    {
-      "file": "Task5.html",
-      "message": "The iframe's `width` attribute should be `100%`.",
-      "snippet": "            <iframe src=\"https://elzero.org/\" frameborder=\"0\" width=\"100%\" height=\"400\"></iframe>"
+      "file": "Lessons35to37.html",
+      "message": "One of the skill `div` elements has `tabindex=\"o\"` instead of `tabindex=\"0\"`.",
+      "snippet": null
     }
   ],
-  "totalIssues": 17
+  "totalIssues": 14
 }

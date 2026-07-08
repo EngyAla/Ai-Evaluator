@@ -5,28 +5,38 @@ import CsvUpload from '../components/Upload/CsvUpload.jsx';
 import Button from '../components/Common/Button.jsx';
 import Spinner from '../components/Common/Spinner.jsx';
 import StudentTable from '../components/Students/StudentTable.jsx';
-import ProgressList from '../components/Progress/ProgressList.jsx';
 import { parseStudentsCsv } from '../utils/csv-parser.js';
 import { evaluateBatch } from '../services/evaluation.service.js';
 import './Dashboard.css';
 
+/**
+ * Normalises a backend status string to one of the four supported
+ * frontend statuses: Waiting | Evaluating | Completed | Error.
+ */
+function normaliseStatus(backendStatus) {
+  if (!backendStatus) return 'Waiting';
+  if (backendStatus === 'Error') return 'Error';
+  // Passed and Failed both mean the evaluation finished successfully
+  if (['Passed', 'Failed', 'Completed'].includes(backendStatus)) return 'Completed';
+  return backendStatus;
+}
+
 export default function Dashboard() {
   // ── Upload state ──────────────────────────────────────────────────
-  const [rubricFile, setRubricFile] = useState(null);
-  const [csvFile, setCsvFile] = useState(null);
+  const [rubricFile, setRubricFile]   = useState(null);
+  const [csvFile,    setCsvFile]      = useState(null);
   const [rubricError, setRubricError] = useState(null);
-  const [csvError, setCsvError] = useState(null);
+  const [csvError,    setCsvError]    = useState(null);
 
-  // ── CSV parsing state ─────────────────────────────────────────────
-  const [students, setStudents] = useState([]);
+  // ── Single students state — the source of truth ───────────────────
+  const [students,    setStudents]    = useState([]);
   const [csvWarnings, setCsvWarnings] = useState([]);
 
   // ── Evaluation state ──────────────────────────────────────────────
-  const [isEvaluating, setIsEvaluating] = useState(false);
-  const [evaluationResults, setEvaluationResults] = useState([]);
+  const [isEvaluating,    setIsEvaluating]    = useState(false);
   const [evaluationError, setEvaluationError] = useState(null);
 
-  // ── CSV upload handler: parse immediately on file select ──────────
+  // ── CSV upload handler: parse immediately ─────────────────────────
   const handleCsvFileSelect = useCallback(async (meta) => {
     setCsvFile(meta);
     setCsvError(null);
@@ -34,11 +44,12 @@ export default function Dashboard() {
     setCsvWarnings([]);
     setEvaluationError(null);
 
-    if (!meta) return; // file removed
+    if (!meta) return;
 
     try {
       const { students: parsed, warnings } = await parseStudentsCsv(meta.file);
-      setStudents(parsed);
+      // Seed every student with status = Waiting
+      setStudents(parsed.map((s) => ({ ...s, status: 'Waiting' })));
       setCsvWarnings(warnings);
     } catch (err) {
       setCsvError(err.message);
@@ -48,51 +59,54 @@ export default function Dashboard() {
 
   const handleCsvError = useCallback((err) => {
     setCsvError(err);
-    if (err) {
-      setCsvFile(null);
-      setStudents([]);
-    }
+    if (err) { setCsvFile(null); setStudents([]); }
   }, []);
 
-  // ── Evaluate All handler ──────────────────────────────────────────
+  // ── Evaluate All ──────────────────────────────────────────────────
   const handleEvaluate = useCallback(async () => {
-    // Pre-flight validations (guard against stale state)
-    if (!rubricFile) {
-      setEvaluationError('Please upload an evaluation rubric before starting.');
-      return;
-    }
-    if (!csvFile) {
-      setEvaluationError('Please upload a students CSV before starting.');
-      return;
-    }
-    if (students.length === 0) {
-      setEvaluationError('No valid students detected in the CSV. Please check the file and try again.');
-      return;
-    }
+    if (!rubricFile) { setEvaluationError('Please upload an evaluation rubric before starting.'); return; }
+    if (!csvFile)    { setEvaluationError('Please upload a students CSV before starting.'); return; }
+    if (students.length === 0) { setEvaluationError('No valid students detected. Check the CSV file.'); return; }
 
     setIsEvaluating(true);
     setEvaluationError(null);
-    setEvaluationResults([]);
+
+    // ── Immediately mark every student as "Evaluating" ──────────────
+    setStudents((prev) => prev.map((s) => ({ ...s, status: 'Evaluating' })));
 
     try {
       const data = await evaluateBatch({
-        rubricFile: rubricFile.name,   // send filename string, not the File object
-        students,
+        rubricFile: rubricFile.name,
+        students: students.map(({ student, repositoryUrl }) => ({ student, repositoryUrl })),
       });
-      setEvaluationResults(data);
+
+      // ── Merge backend results into students array ─────────────────
+      setStudents((prev) =>
+        prev.map((s) => {
+          const result = data.find((r) => r.student === s.student);
+          if (!result) return { ...s, status: 'Error', error: 'No result returned by the server.' };
+          return {
+            ...s,
+            ...result,
+            status: normaliseStatus(result.status),
+          };
+        })
+      );
     } catch (err) {
+      // Network / global error — reset all students to Waiting
       setEvaluationError(err.message);
+      setStudents((prev) => prev.map((s) => ({ ...s, status: 'Waiting' })));
     } finally {
       setIsEvaluating(false);
     }
   }, [rubricFile, csvFile, students]);
 
-  // ── Evaluate All button enabled when: both files ok + students present ──
+  // ── Button guard ──────────────────────────────────────────────────
   const canEvaluate =
-    rubricFile !== null &&
-    csvFile !== null &&
-    rubricError === null &&
-    csvError === null &&
+    rubricFile   !== null &&
+    csvFile      !== null &&
+    rubricError  === null &&
+    csvError     === null &&
     students.length > 0 &&
     !isEvaluating;
 
@@ -171,14 +185,9 @@ export default function Dashboard() {
         )}
       </Button>
 
-      {/* ── Students table ── */}
+      {/* ── Detected Students table (single source of truth) ── */}
       <div className="dashboard-results-section">
         <StudentTable students={students} />
-      </div>
-
-      {/* ── Progress list ── */}
-      <div className="dashboard-progress-section">
-        <ProgressList />
       </div>
 
       {/* ── Footer actions ── */}

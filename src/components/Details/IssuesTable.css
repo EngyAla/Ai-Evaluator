@@ -1,6 +1,7 @@
 .issues-table {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .issues-table-header {

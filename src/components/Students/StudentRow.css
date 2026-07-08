@@ -44,3 +44,9 @@
 .student-row-status {
   white-space: nowrap;
 }
+
+/* Error rows get a subtle red left border */
+.student-row-error td:first-child {
+  border-left: 3px solid var(--error-color);
+}
+
