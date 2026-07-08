@@ -7,6 +7,7 @@ import Spinner from '../components/Common/Spinner.jsx';
 import StudentTable from '../components/Students/StudentTable.jsx';
 import { parseStudentsCsv } from '../utils/csv-parser.js';
 import { evaluateBatch } from '../services/evaluation.service.js';
+import { downloadExcelReport } from '../services/excel-export.service.js';
 import './Dashboard.css';
 
 /**
@@ -101,7 +102,16 @@ export default function Dashboard() {
     }
   }, [rubricFile, csvFile, students]);
 
-  // ── Button guard ──────────────────────────────────────────────────
+  // ── Export handler ────────────────────────────────────────────────
+  const handleExport = useCallback(async () => {
+    try {
+      await downloadExcelReport(students);
+    } catch (err) {
+      setEvaluationError(`Export failed: ${err.message}`);
+    }
+  }, [students]);
+
+  // ── Button guards ─────────────────────────────────────────────────
   const canEvaluate =
     rubricFile   !== null &&
     csvFile      !== null &&
@@ -109,6 +119,11 @@ export default function Dashboard() {
     csvError     === null &&
     students.length > 0 &&
     !isEvaluating;
+
+  // Export is available once at least one student has a final status
+  const canExport =
+    !isEvaluating &&
+    students.some((s) => s.status === 'Completed' || s.status === 'Error');
 
   return (
     <PageContainer className="dashboard-page">
@@ -192,7 +207,12 @@ export default function Dashboard() {
 
       {/* ── Footer actions ── */}
       <div className="dashboard-footer-actions">
-        <Button variant="secondary" className="export-excel-btn">
+        <Button
+          variant="secondary"
+          className="export-excel-btn"
+          disabled={!canExport}
+          onClick={handleExport}
+        >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="btn-icon">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>

@@ -348,7 +348,7 @@ Prioritize the following common mistakes:
 - Ensure textarea default text is inside the element.
 
 # STUDENT SUBMISSION
-===== Lessons 24To27.html =====
+===== week2-main/Lessons 24To27.html =====
 
 ```html
 <!DOCTYPE html>
@@ -414,7 +414,7 @@ Prioritize the following common mistakes:
 
 ```
 
-===== Lessons 28To30.html =====
+===== week2-main/Lessons 28To30.html =====
 
 ```html
 <!DOCTYPE html>
@@ -492,7 +492,7 @@ Prioritize the following common mistakes:
 </html>
 ```
 
-===== Lessons31to34.html =====
+===== week2-main/Lessons31to34.html =====
 
 ```html
 <!DOCTYPE html>
@@ -558,7 +558,7 @@ Prioritize the following common mistakes:
 </html>
 ```
 
-===== Lessons35to37.html =====
+===== week2-main/Lessons35to37.html =====
 
 ```html
 <!DOCTYPE html>

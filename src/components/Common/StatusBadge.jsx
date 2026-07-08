@@ -17,8 +17,8 @@ export default function StatusBadge({ status }) {
   let variant = 'info';
   if (s === 'passed' || s === 'completed')     variant = 'success';
   else if (s === 'failed' || s === 'error')    variant = 'error';
-  else if (s === 'waiting..')                    variant = 'warning';
-  else if (s === 'evaluating..')                 variant = 'info';
+  else if (s === 'waiting')                    variant = 'warning';
+  else if (s === 'evaluating')                 variant = 'info';
 
   return (
     <span className={`status-badge status-${variant}`}>
